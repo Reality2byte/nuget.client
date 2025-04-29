@@ -336,12 +336,14 @@ namespace NuGet.PackageManagement.UI
 
                     if (listItem.PackageLevel == PackageLevel.TopLevel)
                     {
-                        listItem.UpdatePackageStatus(_installedPackages);
+                        listItem.UpdatePackageStatusAsync(_installedPackages)
+                            .PostOnFailure(nameof(PackageItemLoader), nameof(GetCurrent));
                     }
                     else
                     {
                         listItem.UpdateTransitiveInfo(metadataContextInfo);
-                        listItem.UpdateTransitivePackageStatus();
+                        listItem.UpdateTransitivePackageStatusAsync()
+                            .PostOnFailure(nameof(PackageItemLoader), nameof(GetCurrent));
                     }
 
                     listItemViewModels[packageId] = listItem;

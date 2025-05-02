@@ -54,28 +54,32 @@ configuration:
             user: jeffkl
       - if: 
         - isActivitySender:
-            user: jebriede
-        then: 
-        - assignTo:
-            user: Nigusu-Allehu
-        - assignTo:
-            user: jeffkl
-      - if: 
-        - isActivitySender:
-            user: Nigusu-Allehu
-        then: 
-        - assignTo:
-            user: jebriede
-        - assignTo:
-            user: jeffkl
-      - if: 
-        - isActivitySender:
             user: jeffkl
         then: 
         - assignTo:
             user: zivkan
         - assignTo:
             user: donnie-msft
+      - if: 
+        - isActivitySender:
+            user: jebriede
+        then: 
+        - assignTo:
+            user: Nigusu-Allehu
+        - assignTo:
+            user: dtivel
+      - if: 
+        - isActivitySender:
+            user: Nigusu-Allehu
+        then: 
+        - assignTo:
+            user: jebriede
+        - assignTo:
+            user: dtivel
+      - if: 
+        - isActivitySender:
+            user: dtivel
+        then: 
         - assignTo:
             user: jebriede
         - assignTo:

@@ -304,4 +304,10 @@
   <data name="Error_NuGetConfig_InvalidState" xml:space="preserve">
     <value>One or more NuGet.Config files contain an error.</value>
   </data>
+  <data name="Migrating_ProjectJson_Started" xml:space="preserve">
+    <value>Migrating project.json project...</value>
+  </data>
+  <data name="Migrating_ProjectJson_Succeeded" xml:space="preserve">
+    <value>Migration Succeeded</value>
+  </data>
 </root>

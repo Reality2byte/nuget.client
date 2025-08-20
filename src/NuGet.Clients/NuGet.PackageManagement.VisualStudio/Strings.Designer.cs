@@ -367,6 +367,24 @@ namespace NuGet.PackageManagement.VisualStudio {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Migrating project.json project....
+        /// </summary>
+        public static string Migrating_ProjectJson_Started {
+            get {
+                return ResourceManager.GetString("Migrating_ProjectJson_Started", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Migration Succeeded.
+        /// </summary>
+        public static string Migrating_ProjectJson_Succeeded {
+            get {
+                return ResourceManager.GetString("Migrating_ProjectJson_Succeeded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The {0} MSBuild property could not be found for project &apos;{1}&apos;..
         /// </summary>
         public static string MSBuildPropertyNotFound {

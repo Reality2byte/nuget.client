@@ -1077,5 +1077,10 @@ namespace NuGet.Common
         /// InvalidUndottedFrameworkWarning
         /// </summary>
         NU5501 = 5501,
+
+        /// <summary>
+        /// Invalid deterministic timestamp
+        /// </summary>
+        NU5502 = 5502,
     }
 }

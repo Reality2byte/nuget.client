@@ -403,7 +403,7 @@ namespace NuGetVSExtension {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Solution is not saved. Please save your solution before managing NuGet packages..
+        ///   Looks up a localized string similar to Solution is not saved. Save your solution before managing NuGet packages..
         /// </summary>
         internal static string SolutionIsNotSaved {
             get {

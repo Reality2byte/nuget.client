@@ -168,7 +168,7 @@
         <note>Do not translate % % or what is between them</note>
       </trans-unit>
       <trans-unit id="SolutionIsNotSaved">
-        <source>Solution is not saved. Please save your solution before managing NuGet packages.</source>
+        <source>Solution is not saved. Save your solution before managing NuGet packages.</source>
         <target state="translated">Řešení není uložené. Než začnete spravovat balíčky NuGet, řešení uložte.</target>
         <note />
       </trans-unit>

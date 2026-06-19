@@ -5,16 +5,13 @@
 
 using System;
 using System.Diagnostics;
-#if NET5_0_OR_GREATER
-using System.Diagnostics.CodeAnalysis;
-#endif
 using System.Globalization;
 using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
+using System.Text.Json;
 using NuGet.Common;
 using NuGet.Configuration;
 
@@ -173,10 +170,6 @@ namespace NuGet.Credentials
         /// </summary>
         public int TimeoutSeconds { get; }
 
-#if NET5_0_OR_GREATER
-        [UnconditionalSuppressMessage("AOT", "IL2026", Justification = "Legacy command-line credential provider infrastructure; Newtonsoft.Json deserializes the concrete PluginCredentialResponse type, which is preserved here.")]
-        [UnconditionalSuppressMessage("AOT", "IL3050", Justification = "Legacy command-line credential provider infrastructure; Newtonsoft.Json deserializes the concrete PluginCredentialResponse type, which is preserved here.")]
-#endif
         private PluginCredentialResponse GetPluginResponse(PluginCredentialRequest request,
             CancellationToken cancellationToken)
         {
@@ -216,8 +209,10 @@ namespace NuGet.Credentials
             try
             {
                 // Mono will add utf-16 byte order mark to the start of stdOut, remove it here.
-                credentialResponse =
-                    JsonConvert.DeserializeObject<PluginCredentialResponse>(stdOut.Trim(new char[] { '\uFEFF' }))
+                var trimmedOutput = stdOut.Trim(new char[] { '\uFEFF' });
+                credentialResponse = string.IsNullOrWhiteSpace(trimmedOutput)
+                    ? new PluginCredentialResponse()
+                    : JsonSerializer.Deserialize(trimmedOutput, PluginCredentialResponseJsonContext.Default.PluginCredentialResponse)
                     ?? new PluginCredentialResponse();
             }
             catch (Exception)
